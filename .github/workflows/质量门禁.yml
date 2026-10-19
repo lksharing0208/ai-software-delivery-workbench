@@ -1,0 +1,37 @@
+name: 质量门禁
+
+on:
+  push:
+    branches:
+      - main
+      - develop
+  pull_request:
+    branches:
+      - main
+      - develop
+  workflow_dispatch:
+
+# 默认只读权限。后续确有必要时，再为单独的作业授予最小写入权限。
+permissions:
+  contents: read
+
+concurrency:
+  group: quality-gate-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  scaffold-check:
+    name: 配置自检
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: 读取当前提交
+        uses: actions/checkout@v7
+
+      - name: 设置 Python 环境
+        uses: actions/setup-python@v7
+        with:
+          python-version: '3.13'
+
+      - name: 检查工作台文件与中文文档
+        run: python scripts/验证工作台.py
