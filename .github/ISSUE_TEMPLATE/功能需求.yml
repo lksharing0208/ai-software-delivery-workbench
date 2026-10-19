@@ -1,0 +1,53 @@
+name: 功能需求
+description: 用中文描述一个可拆分、可验收的功能需求
+title: "[需求] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        请先说明目标、现状和验收条件。避免在需求中粘贴密钥、真实用户数据或生产凭据。
+  - type: textarea
+    id: background
+    attributes:
+      label: 背景与问题
+      description: 当前遇到什么问题，影响谁，为什么需要解决？
+      placeholder: 请描述现状与问题。
+    validations:
+      required: true
+  - type: textarea
+    id: goal
+    attributes:
+      label: 目标与范围
+      description: 说明本次要实现什么，以及明确不做什么。
+      placeholder: 目标……；不在范围内……
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: 验收条件
+      description: 请使用“给定……当……则……”描述可验证结果。
+      placeholder: |
+        - 给定……当……则……
+        - 给定……当……则……
+    validations:
+      required: true
+  - type: checkboxes
+    id: impact
+    attributes:
+      label: 可能影响
+      options:
+        - label: 接口或调用方
+        - label: 数据库或历史数据
+        - label: 权限、安全或敏感数据
+        - label: 支付、并发、事务或幂等
+        - label: 部署、配置或监控
+        - label: 性能或容量
+  - type: textarea
+    id: tests
+    attributes:
+      label: 测试与发布考虑
+      description: 说明需要哪些测试，是否涉及配置、迁移、部署和回滚。
+      placeholder: 测试计划、发布风险、回滚方案。
+    validations:
+      required: true
