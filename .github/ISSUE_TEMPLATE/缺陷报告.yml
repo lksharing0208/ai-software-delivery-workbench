@@ -1,0 +1,47 @@
+name: 缺陷报告
+description: 提供可复现的故障信息，帮助定位根因
+title: "[缺陷] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        请先脱敏日志和截图。不要上传访问令牌、用户隐私、数据库密码或生产密钥。
+  - type: textarea
+    id: symptom
+    attributes:
+      label: 现象与影响
+      description: 用户看到什么，哪些服务或功能受到影响？
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: 复现步骤
+      description: 尽量给出最小可复现操作、请求或输入。
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: 预期与实际结果
+      description: 说明预期结果和实际观察到的差异。
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: 日志、时间线与环境
+      description: 提供已脱敏日志、发生时间（含时区）、版本、环境和请求标识。
+      render: text
+    validations:
+      required: true
+  - type: textarea
+    id: tried
+    attributes:
+      label: 已尝试的排查与结果
+      description: 列出执行过的操作和真实结果，不要只写推测。
+  - type: textarea
+    id: impact
+    attributes:
+      label: 风险与止血需求
+      description: 是否影响数据一致性、支付、安全或生产可用性？是否需要立即止血？
