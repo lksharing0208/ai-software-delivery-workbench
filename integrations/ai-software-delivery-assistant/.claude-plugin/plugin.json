@@ -1,0 +1,8 @@
+{
+  "name": "ai-software-delivery-assistant",
+  "version": "1.0.0",
+  "description": "项目级 AI 软件交付助手：需求分析、架构设计、代码实现、独立审查、测试与交付治理。",
+  "author": {
+    "name": "lksharing0208"
+  }
+}

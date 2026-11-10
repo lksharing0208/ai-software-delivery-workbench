@@ -1,0 +1,28 @@
+{
+  "name": "ai-software-delivery-assistant",
+  "display_name": "AI 软件交付助手",
+  "version": "1.0.0",
+  "description": "面向 ai-software-delivery-workbench 的跨模型研发工作流助手，共享 Skills，支持需求、架构、实现、Review、测试与 Git 交付。",
+  "platforms": ["chatgpt", "claude"],
+  "skills": [
+    "skills/workbench-orchestrator/SKILL.md",
+    "skills/requirement-architecture/SKILL.md",
+    "skills/implementation/SKILL.md",
+    "skills/review-testing/SKILL.md",
+    "skills/delivery-governance/SKILL.md"
+  ],
+  "project_context": [
+    "../../AGENTS.md",
+    "../../CLAUDE.md",
+    "../../README.md",
+    "../../docs/"
+  ],
+  "default_policy": {
+    "language": "zh-CN",
+    "read_project_materials_first": true,
+    "default_review_mode": "read-only",
+    "require_explicit_approval_for_git_write": true,
+    "never_claim_unrun_tests_passed": true,
+    "never_claim_unverified_deployment": true
+  }
+}
